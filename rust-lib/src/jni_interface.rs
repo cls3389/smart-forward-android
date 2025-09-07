@@ -35,7 +35,7 @@ pub extern "system" fn Java_com_smartforward_SmartForwardNative_startProxy(
     init_globals();
     
     // 获取配置字符串
-    let config_str: String = match env.get_string(config_json) {
+    let config_str: String = match env.get_string(&config_json) {
         Ok(s) => s.into(),
         Err(_) => return -1,
     };
@@ -185,7 +185,7 @@ pub extern "system" fn Java_com_smartforward_SmartForwardNative_updateConfig(
     }
     
     // 验证配置
-    let config_str: String = match env.get_string(config_json) {
+    let config_str: String = match env.get_string(&config_json) {
         Ok(s) => s.into(),
         Err(_) => return -1,
     };
