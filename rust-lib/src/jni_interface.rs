@@ -28,7 +28,7 @@ fn init_globals() {
 // 启动代理服务
 #[no_mangle]
 pub extern "system" fn Java_com_smartforward_SmartForwardNative_startProxy(
-    env: JNIEnv,
+    mut env: JNIEnv,
     _class: JClass,
     config_json: JString,
 ) -> jint {
@@ -132,7 +132,7 @@ pub extern "system" fn Java_com_smartforward_SmartForwardNative_stopProxy(
 // 获取服务状态
 #[no_mangle]
 pub extern "system" fn Java_com_smartforward_SmartForwardNative_getStatus(
-    env: JNIEnv,
+    mut env: JNIEnv,
     _class: JClass,
 ) -> jstring {
     unsafe {
@@ -152,7 +152,7 @@ pub extern "system" fn Java_com_smartforward_SmartForwardNative_getStatus(
 // 获取日志
 #[no_mangle]
 pub extern "system" fn Java_com_smartforward_SmartForwardNative_getLogs(
-    env: JNIEnv,
+    mut env: JNIEnv,
     _class: JClass,
 ) -> jstring {
     // 这里可以实现日志收集逻辑
@@ -172,7 +172,7 @@ pub extern "system" fn Java_com_smartforward_SmartForwardNative_getLogs(
 // 更新配置
 #[no_mangle]
 pub extern "system" fn Java_com_smartforward_SmartForwardNative_updateConfig(
-    env: JNIEnv,
+    mut env: JNIEnv,
     _class: JClass,
     config_json: JString,
 ) -> jint {
